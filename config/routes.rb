@@ -20,6 +20,7 @@ Spree::Core::Engine.add_routes do
     post '/password/recover' => 'user_passwords#create', :as => :reset_password
     get '/password/change' => 'user_passwords#edit', :as => :edit_password
     put '/password/change' => 'user_passwords#update', :as => :update_password
+    get '/login_bar' => 'users#login_bar', :as => :login_bar
   end
 
   get '/checkout/registration' => 'checkout#registration', :as => :checkout_registration

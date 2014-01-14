@@ -10,6 +10,12 @@ class Spree::UsersController < Spree::StoreController
     @orders = @user.orders.complete.order('completed_at desc')
   end
 
+  def login_bar
+    if stale?(spree_current_user)
+      render :partial => 'spree/shared/login_bar', layout: false
+    end
+  end
+
   def create
     @user = Spree::User.new(user_params)
     if @user.save
